@@ -16,7 +16,7 @@
     TF_VAR_retention_days: 7
     TF_VAR_partition_count: 2
     TF_VAR_enable_file_upload_notifications: false
-    TF_VAR_eventhub_connection_string: ${{ secrets.EVENTHUB_CONNECTION_STRING }
+    TF_VAR_eventhub_connection_string: ${{ secrets.EVENTHUB_CONNECTION_STRING }}
 
   run-name: Deploy Azure IoT Resources (build - ${{ github.run_id }})
 
