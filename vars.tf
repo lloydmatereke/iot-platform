@@ -9,42 +9,66 @@ variable "location" {
   default     = "East US"
 }
 
-variable "iothub_name" {
+variable "secondary_location" {
+  description = "The secondary location/region for Cosmos DB account"
+  type        = string
+  default     = "West US"
+}
+
+variable "iot_hub_name" {
   description = "The name of the IoT Hub"
   type        = string
 }
 
-variable "iothub_sku" {
+variable "iot_hub_sku" {
   description = "The SKU of the IoT Hub"
   type        = string
   default     = "S1"
 }
 
-variable "iothub_capacity" {
+variable "iot_hub_capacity" {
   description = "The capacity of the IoT Hub"
   type        = number
   default     = 1
 }
 
-variable "retention_days" {
-  description = "The number of days to retain the IoT Hub messages"
-  type        = number
-  default     = 7
-}
-
-variable "partition_count" {
-  description = "The number of partitions for the IoT Hub"
-  type        = number
-  default     = 2
-}
-
-variable "enable_file_upload_notifications" {
-  description = "Should file upload notifications be enabled?"
-  type        = bool
-  default     = false
-}
-
-variable "eventhub_connection_string" {
-  description = "The connection string for the Event Hub endpoint"
+variable "cosmosdb_account_name" {
+  description = "The name of the Cosmos DB account"
   type        = string
+}
+
+variable "cosmosdb_sql_db_name" {
+  description = "The name of the Cosmos DB SQL database"
+  type        = string
+}
+
+variable "cosmosdb_sql_container_name" {
+  description = "The name of the Cosmos DB SQL container"
+  type        = string
+}
+
+variable "cosmosdb_partition_key_path" {
+  description = "The partition key path for the Cosmos DB SQL container"
+  type        = string
+}
+
+variable "storage_account_name" {
+  description = "The name of the Storage account"
+  type        = string
+}
+
+variable "storage_container_name" {
+  description = "The name of the Storage container"
+  type        = string
+}
+
+variable "aks_cluster_name" {
+  description = "The name of the AKS cluster"
+  type        = string
+}
+
+variable "node_count" {
+  description = "The number of nodes in the AKS cluster"
+  type        = number
+  default     = 3
 }

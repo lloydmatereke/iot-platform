@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cosmosdb-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cosmosdb-demo
+  template:
+    metadata:
+      labels:
+        app: cosmosdb-demo
+    spec:
+      containers:
+        - name: cosmosdb-demo
+          image: iotaksdemo.azurecr.io/cosmosdb-demo
+          env:
+            - name: COSMOS_DB_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: cosmosdb-secret
+                  key: COSMOS_DB_ENDPOINT
+            - name: COSMOS_DB_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cosmosdb-secret
+                  key: COSMOS_DB_KEY
